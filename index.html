@@ -1,185 +1,160 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人文章时间轴</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            /* width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0; */
-        }
-        /* 时间轴 */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-            max-width: 80%;
-            margin: 0 auto;
-            left: 2%;
-        }
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 10px; /* 调整位置 */
-            width: 2px;
-            height: 100%; /* 设置高度为100% */
-            background: linear-gradient(to bottom, #333, #666);
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        .timeline-item {
-            padding: 20px;
-            position: relative;
-            clear: both;
-        }
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #fff;
-            border: 2px solid #007BFF;
-            left: 3.5px;
-            top: 0;
-            margin-top: 40px;
-        }
-
-        /* 时间信息 */
-        .timeline-date {
-            position: absolute;
-            top: 10%;
-            left: -80px;
-            text-align: right;
-            width: 70px;
-            color: #666;
-            display: flex;
-            flex-direction: column;/* 垂直排列 */
-            justify-content: center; /* 居中对齐 */
-            align-items: flex-end; /* 右对齐 */
-        }
-
-        /* 年份样式 */
-        .year {
-            font-size: 2em; /* 放大字体 */
-            color: #333; /* 更深的颜色 */
-        }
-
-        /* 月份样式 */
-        .month {
-            font-size: 1em; /* 保持原大小 */
-            color: #666; /* 较浅的颜色 */
-        }
-
-        /* 卡片 */
-        .timeline-content {
-            padding: 10px 0px; /* 内边距 */
-            margin-bottom: 20px; /* 外边距 */
-            margin-left: 20px; /* 左边距 */
-        }
-        .timeline-content h3 {
-            font-size: 1.5em; /* 标题字体大小 */
-            margin: 0 0 10px; /* 标题上下边距 */
-            cursor: pointer;
-        }
-        .timeline-content p {
-            color: #555; /* 简介文字颜色 */
-            line-height: 1.6; /* 简介行高 */
-            cursor: pointer;
-        }
-        
-        h3:hover, p:hover {
-            color: #0058b7;
-        }
-        /* 标签 */
-        .timeline-content .tags {
-            display: flex;
-            flex-wrap: wrap;
-            margin: -5px; /* 负边距用于消除子元素边距重叠 */
-        }
-        .timeline-content .tag {
-            display: inline-block; /* 使标签水平排列 */
-            color: #333; /* 标签文字颜色 */
-            border-radius: 3px; /* 标签圆角 */
-            padding: 5px 10px; /* 标签内边距 */
-            margin-right: 5px; /* 标签之间的间距 */
-            font-size: 0.8em; /* 标签字体大小 */
-            cursor: pointer; /* 改变鼠标样式为手型 */
-            /* transition: background-color 0.3s, color 0.3s;   */
-            /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); */
-            transition: box-shadow 0.3s, transform 0.3s;
-        }  
-        .tag:hover {
-            /* background-color: #e0e0e0;
-            color: #333; */
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transform: translateY(-2px);
-        }
-
-        /* 为不同标签设置不同颜色 */
-        /* .tag.tag-1 {
-            background-color: #ffcc00;
-            color: #333;
-        }
-
-        .tag.tag-2 {
-            background-color: #00ccff;
-            color: #333;
-        }
-
-        .tag.tag-3 {
-            background-color: #cc00ff;
-            color: #fff;
-        } */
-    </style>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // 给文章添加点击事件
             var article1 = document.getElementById('article1');
-            article1.addEventListener('click', function() {
-               alert('article1被点击了！');
-               // 在这里可以添加更多的处理逻辑
-               window.location.href = './articles/article1.html'; // 跳转到文章页面
+            article1.addEventListener('click', function () {
+                alert('article1被点击了！');
+                // 在这里可以添加更多的处理逻辑
+                window.location.href = './articles/article1.md'; // 跳转到文章页面
             });
         });
     </script>
 </head>
+
 <body>
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-date">
-                <div class="year-bg">
-                    <div class="year">2023</div>
-                </div>
-                <div class="month-bg">
-                    <div class="month">08</div>
+    <div class="full-background">
+        <div class="container">
+            <!-- 左侧栏 -->
+            <div class="left-column">
+                <div class="special-infos">
+                    <div class="user-info">
+                        <!-- <img class="avatar" src="https://avatars.githubusercontent.com/u/98222684?v=4" alt="我的头像"> -->
+                        <div class="fixed-avatar">
+                            <img class="avatar" src="https://go.fuyeor.com/ran/pic" alt="我的头像">
+                        </div>
+                        <div class="username">wuyan</div>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-content">
-                <div id="article1">
-                    <h3>文章标题 1</h3>
-                    <p>这里是文章的简介。</p>
+
+            <!-- 右侧栏 -->
+            <div class="right-column">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="year-bg">
+                                <div class="year">2023</div>
+                            </div>
+                            <div class="month-bg">
+                                <div class="month">08</div>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div id="article1">
+                                <h3>文章标题 1</h3>
+                                <p>这里是文章的简介。</p>
+                            </div>
+                            <div class="tags">
+                                <span class="tag"># 标签1</span>
+                                <span class="tag"># 标签2</span>
+                                <span class="tag"># 标签3</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="tags">
-                    <span class="tag"># 标签1</span>
-                    <span class="tag"># 标签2</span>
-                    <span class="tag"># 标签3</span>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="year-bg">
+                                <div class="year">2023</div>
+                            </div>
+                            <div class="month-bg">
+                                <div class="month">08</div>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div id="article1">
+                                <h3>文章标题 1</h3>
+                                <p>这里是文章的简介。</p>
+                            </div>
+                            <div class="tags">
+                                <span class="tag"># 标签1</span>
+                                <span class="tag"># 标签2</span>
+                                <span class="tag"># 标签3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="year-bg">
+                                <div class="year">2023</div>
+                            </div>
+                            <div class="month-bg">
+                                <div class="month">08</div>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div id="article1">
+                                <h3>文章标题 1</h3>
+                                <p>这里是文章的简介。</p>
+                            </div>
+                            <div class="tags">
+                                <span class="tag"># 标签1</span>
+                                <span class="tag"># 标签2</span>
+                                <span class="tag"># 标签3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="year-bg">
+                                <div class="year">2023</div>
+                            </div>
+                            <div class="month-bg">
+                                <div class="month">08</div>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div id="article1">
+                                <h3>文章标题 1</h3>
+                                <p>这里是文章的简介。</p>
+                            </div>
+                            <div class="tags">
+                                <span class="tag"># 标签1</span>
+                                <span class="tag"># 标签2</span>
+                                <span class="tag"># 标签3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">
+                            <div class="year-bg">
+                                <div class="year">2023</div>
+                            </div>
+                            <div class="month-bg">
+                                <div class="month">08</div>
+                            </div>
+                        </div>
+                        <div class="timeline-content">
+                            <div id="article1">
+                                <h3>文章标题 1</h3>
+                                <p>这里是文章的简介。</p>
+                            </div>
+                            <div class="tags">
+                                <span class="tag"># 标签1</span>
+                                <span class="tag"># 标签2</span>
+                                <span class="tag"># 标签3</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+
 </html>
