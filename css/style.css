@@ -28,7 +28,7 @@ html,body {
 .timeline {
   position: relative;
   /* padding: 20px 0; */
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 3px;
   padding-left: 0;
   padding-right: 0;
@@ -45,7 +45,8 @@ html,body {
   left: 10px; /* 调整位置 */
   width: 2px;
   height: 1000%; /* 设置高度为500% */
-  background: linear-gradient(to bottom, #333, #666);
+  /* background: linear-gradient(to bottom, #333, #666); */
+  background: linear-gradient(to bottom, #666, #666);
   animation: fadeIn 1s ease-in-out;
 }
 @keyframes fadeIn {
@@ -119,6 +120,8 @@ html,body {
   /* line-height: 1.6; 简介行高 */
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
+  width: 800px; 
+  margin-top: 25px
 }
 
 h3:hover, p:hover {
