@@ -1,19 +1,41 @@
-body {
+html,body {
   font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  /* overflow: hidden; 隐藏溢出内容 */
+  /* line-height: 1.6; */
+  /* 隐藏溢出内容 */
+  overflow: hidden; 
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+
+}
+/* 右侧栏 */
+.article-infos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 /* 时间轴 */
 .timeline {
   position: relative;
-  padding: 20px 0;
+  /* padding: 20px 0; */
+  padding-top: 30px;
+  padding-bottom: 3px;
+  padding-left: 0;
+  padding-right: 0;
   max-width: 80%;
   margin: 0 auto;
   left: 2%;
+  /* height: 33.6%; */
 }
 .timeline::before {
   content: "";
@@ -22,7 +44,7 @@ body {
   bottom: 0;
   left: 10px; /* 调整位置 */
   width: 2px;
-  height: 100%; /* 设置高度为100% */
+  height: 1000%; /* 设置高度为500% */
   background: linear-gradient(to bottom, #333, #666);
   animation: fadeIn 1s ease-in-out;
 }
@@ -35,7 +57,7 @@ body {
   }
 }
 .timeline-item {
-  padding: 20px;
+  padding: 0 20px;
   position: relative;
   clear: both;
 }
@@ -47,7 +69,7 @@ body {
   border-radius: 50%;
   background-color: #fff;
   border: 2px solid #007BFF;
-  left: 3.5px;
+  left: 4px;
   top: 0;
   margin-top: 40px;
 }
@@ -55,7 +77,7 @@ body {
 /* 时间信息 */
 .timeline-date {
   position: absolute;
-  top: 10%;
+  top: 12%;
   left: -80px;
   text-align: right;
   width: 70px;
@@ -78,25 +100,32 @@ body {
   color: #666; /* 较浅的颜色 */
 }
 
-/* 卡片 */
+/* 文章卡片 */
 .timeline-content {
-  padding: 10px 0px; /* 内边距 */
-  margin-bottom: 20px; /* 外边距 */
+  padding: 14px 0px; /* 内边距 */
+  /* margin-bottom: 15px; */
+   /* 外边距 */
   margin-left: 20px; /* 左边距 */
+  width: 600px;
 }
 .timeline-content h3 {
   font-size: 1.5em; /* 标题字体大小 */
   margin: 0 0 10px; /* 标题上下边距 */
   cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 .timeline-content p {
-  color: #555; /* 简介文字颜色 */
-  line-height: 1.6; /* 简介行高 */
+  color: #484848; /* 简介文字颜色 */
+  /* line-height: 1.6; 简介行高 */
   cursor: pointer;
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 
 h3:hover, p:hover {
   color: #0058b7;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transform: translateY(-2px);
 }
 /* 标签 */
 .timeline-content .tags {
@@ -115,24 +144,24 @@ h3:hover, p:hover {
   transition: box-shadow 0.3s, transform 0.3s;
 }  
 .tag:hover {
-  /* background-color: #e0e0e0;
-  color: #333; */
+  background-color: #e0e0e0;
+  color: #333;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transform: translateY(-2px);
 }
 
 /* 全图背景 */
 .full-background {
-  position: relative;
+  /* position: relative; */
 }
 .full-background:before {
-  content: '';
+  content: ' ';
   display: block;
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 105%;
   opacity: 0.5; /* 50%的透明度 */
   /* 设置背景图片 */
   background-image: url('https://go.fuyeor.com/ran/pic');
@@ -168,11 +197,11 @@ h3:hover, p:hover {
   display: grid;
   /* 1fr表示一个分数单位，这里意味着左右两栏将各自占据一半的容器宽度。 */
   /* grid-template-columns: 1fr 1fr;  */
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 40% 60%;
 }
 
 .left-column {
-  padding: 20px;
+  padding: 0px;
   /* 设置相对定位，以便内部元素使用绝对定位 */
   position: relative;
 }
@@ -192,9 +221,9 @@ h3:hover, p:hover {
 .user-info {
   text-align: center;
   padding: 20px;
-  position: absolute; /* 使用户信息相对于容器定位 */
+  position: fixed; /* 使用户信息相对于容器定位 */
   top: 50%;
-  left: 50%;
+  left: 20%;
   transform: translate(-50%, -50%); /* 居中用户信息 */
   text-align: center;
   z-index: 1; /* 确保用户信息在页面其他内容之上 */
@@ -226,3 +255,121 @@ h3:hover, p:hover {
   font-family: 'Arial', sans-serif; /* 字体，使用系统默认的 sans-serif 作为备选 */
   color: #333; /* 文本颜色 */
 }
+
+.motto {
+  font-family: 'Georgia', serif; /* 选择经典衬线字体 */
+  font-size: 20px; /* 设置合适的字体大小 */
+  font-style: italic; /* 斜体可以增加文本的强调效果 */
+  color: #333; /* 选择合适的文本颜色 */
+  text-align: center; /* 根据需要设置文本对齐方式 */
+}
+
+.contact-info {
+  font-family: 'Arial', sans-serif; /* 无衬线字体 */
+  font-size: 16px; /* 推荐字体大小 */
+  color: #333; /* 常规字体颜色 */
+  line-height: 1.5; /* 适当的行高增加可读性 */
+  margin-top: 20px;
+  margin-left: 70px;
+}
+
+.contact-list {
+  margin: 20px 0;
+  list-style-type: none;
+  padding: 0;
+}
+.contact-item {
+  display: flex;
+  padding: 0px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  align-items: center; /* 垂直居中 */
+}
+.contact-item > div:first-child {
+  /* 设置第一个div的样式，比如宽度和边框 */
+  width: 80px;
+  padding: 5px;
+  margin-right: 5px;
+  text-align: right;
+}
+
+/* 翻页 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.page-link {
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.page-link.active {
+  background-color: #007bff;
+  color: white;
+}
+/* 上一页按钮样式 */
+.previous-page-button {
+  position: fixed;
+  bottom: 20px;
+  /* left: 20px; */
+  right: 140px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  visibility: hidden; /* 默认隐藏 */
+} 
+
+/* 下一页按钮样式 */
+.next-page-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.previous-page-button:hover, .next-page-button:hover {
+  background-color: #0056b3;
+}
+
+.previous-page-button:active, .next-page-button:active{
+  transform: translateY(1px);
+}
+
+/* 可选：在页面顶部或底部居中显示按钮 */
+.page-navigation {
+  display: flex; /* 使用Flexbox布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: space-between; /* 水平方向上平均分布剩余空间 */
+  gap: 10px; /* 为元素间添加间距 */
+}
+
+/* 跳转页码样式 */
+.page-turn{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 20px;
+  right: 260px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif; /* 无衬线字体 */
+}
+.page-turn-input{
+  width: 50px; /* 根据需要调整输入框的宽度 */
+  margin: 0 5px; /* 为输入框添加左右边距，使其与文本之间有空隙 */
+}
+

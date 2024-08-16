@@ -6,17 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人文章时间轴</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // 给文章添加点击事件
-            var article1 = document.getElementById('article1');
-            article1.addEventListener('click', function () {
-                alert('article1被点击了！');
-                // 在这里可以添加更多的处理逻辑
-                window.location.href = './articles/article1.md'; // 跳转到文章页面
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -26,135 +15,48 @@
             <div class="left-column">
                 <div class="special-infos">
                     <div class="user-info">
-                        <!-- <img class="avatar" src="https://avatars.githubusercontent.com/u/98222684?v=4" alt="我的头像"> -->
                         <div class="fixed-avatar">
-                            <img class="avatar" src="https://go.fuyeor.com/ran/pic" alt="我的头像">
+                            <!-- <img class="avatar" src="https://go.fuyeor.com/ran/pic" alt="我的头像"> -->
+                        <img class="avatar" src="https://avatars.githubusercontent.com/u/98222684?v=4" alt="我的头像">
                         </div>
-                        <div class="username">wuyan</div>
+                        <div class="username">Againon</div>
+                        <div class="motto">Dare to dream. Dare to fail. Dare to succeed.</div>
+                        <div class="contact-info">
+                            <ul class="contact-list">
+                                <li class="contact-item">
+                                    <div><strong>邮箱:</strong></div>
+                                    <div>2495987435@qq.com</div>
+                                </li>
+                                <li class="contact-item">
+                                    <div><strong>电话:</strong></div>
+                                    <div>暂时保密🤐</div>
+                                </li>
+                                <!-- 更多联系人信息 -->
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- 右侧栏 -->
             <div class="right-column">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <div class="year-bg">
-                                <div class="year">2023</div>
-                            </div>
-                            <div class="month-bg">
-                                <div class="month">08</div>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div id="article1">
-                                <h3>文章标题 1</h3>
-                                <p>这里是文章的简介。</p>
-                            </div>
-                            <div class="tags">
-                                <span class="tag"># 标签1</span>
-                                <span class="tag"># 标签2</span>
-                                <span class="tag"># 标签3</span>
-                            </div>
-                        </div>
+                <div class="article-infos">
+                    <div id="content">
+                        <!-- 这里将动态插入内容 -->
                     </div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <div class="year-bg">
-                                <div class="year">2023</div>
-                            </div>
-                            <div class="month-bg">
-                                <div class="month">08</div>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div id="article1">
-                                <h3>文章标题 1</h3>
-                                <p>这里是文章的简介。</p>
-                            </div>
-                            <div class="tags">
-                                <span class="tag"># 标签1</span>
-                                <span class="tag"># 标签2</span>
-                                <span class="tag"># 标签3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <div class="year-bg">
-                                <div class="year">2023</div>
-                            </div>
-                            <div class="month-bg">
-                                <div class="month">08</div>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div id="article1">
-                                <h3>文章标题 1</h3>
-                                <p>这里是文章的简介。</p>
-                            </div>
-                            <div class="tags">
-                                <span class="tag"># 标签1</span>
-                                <span class="tag"># 标签2</span>
-                                <span class="tag"># 标签3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <div class="year-bg">
-                                <div class="year">2023</div>
-                            </div>
-                            <div class="month-bg">
-                                <div class="month">08</div>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div id="article1">
-                                <h3>文章标题 1</h3>
-                                <p>这里是文章的简介。</p>
-                            </div>
-                            <div class="tags">
-                                <span class="tag"># 标签1</span>
-                                <span class="tag"># 标签2</span>
-                                <span class="tag"># 标签3</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">
-                            <div class="year-bg">
-                                <div class="year">2023</div>
-                            </div>
-                            <div class="month-bg">
-                                <div class="month">08</div>
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <div id="article1">
-                                <h3>文章标题 1</h3>
-                                <p>这里是文章的简介。</p>
-                            </div>
-                            <div class="tags">
-                                <span class="tag"># 标签1</span>
-                                <span class="tag"># 标签2</span>
-                                <span class="tag"># 标签3</span>
-                            </div>
-                        </div>
+                    <!-- 翻页按钮 -->
+                    <div class="page-navigation">
+                        <div id="page-turn" class="page-turn"></div>
+                        <button class="previous-page-button" id="prev">上一页</button>
+                        <button class="next-page-button" id="next">下一页</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- <script src="./js/jquery-3.6.4.min.js"></script> -->
+    <script type="text/javascript" src="./js/data.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
