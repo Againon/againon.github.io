@@ -2,13 +2,14 @@ html,body {
   font-family: 'Arial', sans-serif;
   /* line-height: 1.6; */
   /* 隐藏溢出内容 */
-  overflow: hidden; 
+  overflow: hidden;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 
 }
+
 /* 右侧栏 */
 .article-infos {
   display: flex;
@@ -17,146 +18,201 @@ html,body {
   height: 100%;
   margin: 0;
   padding: 0;
-}
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-/* 时间轴 */
-.timeline {
   position: relative;
-  /* padding: 20px 0; */
-  padding-top: 50px;
-  padding-bottom: 3px;
-  padding-left: 0;
-  padding-right: 0;
-  max-width: 80%;
-  margin: 0 auto;
-  left: 2%;
-  /* height: 33.6%; */
+  /* 使 .article-info 相对于 .article-infos 定位 */
+  min-height: 100vh;
+  /* 确保 .article-infos 至少与视口高度相同 */
 }
-.timeline::before {
-  content: "";
+
+/* 文章整体卡片内容 + 时间轴*/
+.article-infos .article-info {
   position: absolute;
   top: 0;
-  bottom: 0;
-  left: 10px; /* 调整位置 */
+  /* 或者根据需要调整位置 */
+  left: 10%;
   width: 2px;
-  height: 1000%; /* 设置高度为500% */
-  /* background: linear-gradient(to bottom, #333, #666); */
-  background: linear-gradient(to bottom, #666, #666);
+  /* 竖线的宽度 */
+  height: 100%;
+  /* 视口高度 */
+  background-color: black;
+  /* 竖线的颜色 */
+  background: linear-gradient(to bottom, #333, #666);
   animation: fadeIn 1s ease-in-out;
+  z-index: 1;
 }
 @keyframes fadeIn {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
-.timeline-item {
-  padding: 0 20px;
-  position: relative;
-  clear: both;
-}
-.timeline-item::before {
-  content: "";
+
+/* 添加小圆圈 */
+.article-infos .article-info .timeline {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  /* 根据需要设置宽度 */
+  height: 20px;
+  /* 根据需要设置高度 */
+  /* background-color: white; */
+  /* 设置颜色 */
   border-radius: 50%;
-  background-color: #fff;
+  /* 圆形显示 */
+  display: flex;
+  /* 使 ::before 居中 */
+  align-items: center;
+  /* 垂直居中 */
+  justify-content: center;
+  /* 水平居中 */
+  left: -8px;
+}
+
+.article-infos .article-info .timeline::before {
+  content: " "; /* 必须设置 content */
+  display: inline-block; /* 显示为内联块元素 */
+  width: 10px; /* 小圆圈的宽度 */
+  height: 10px; /* 小圆圈的高度 */
+  background-color: #fff; /* 小圆圈的颜色 */
   border: 2px solid #007BFF;
-  left: 4px;
-  top: 0;
-  margin-top: 40px;
+  border-radius: 50%; /* 圆形显示 */
+}
+
+/* 第一个 timeline-item 的位置 */
+.article-infos .article-info .timeline:nth-child(1) {
+  top: 15%;
+}
+
+/* 第二个 timeline-item 的位置 */
+.article-infos .article-info .timeline:nth-child(2) {
+  top: 45%;
+}
+
+/* 第三个 timeline-item 的位置 */
+.article-infos .article-info .timeline:nth-child(3) {
+  top: 75%;
+}
+
+/* 单个时间和文章卡片 */
+.article-infos .article-info .timeline .timeline-item {
+  position: absolute;
+  left: 100%; 
+  /* 与小圆圈的间距 */
+  margin-left: 5px; 
+  display: flex;
+  flex: 1; /* 使每个 .timeline-item 占据相等的空间 */
+  align-items: center; /* 垂直居中 */
+  width: 100vh;
 }
 
 /* 时间信息 */
-.timeline-date {
-  position: absolute;
-  top: 12%;
-  left: -80px;
+.article-infos .article-info .timeline .timeline-item .timeline-date {
+  position: relative;
+  top: -6px;
+  left: -110px;
   text-align: right;
   width: 70px;
   color: #666;
   display: flex;
-  flex-direction: column;/* 垂直排列 */
-  justify-content: center; /* 居中对齐 */
-  align-items: flex-end; /* 右对齐 */
+  /* 垂直排列 */
+  flex-direction: column;
+  /* 居中对齐 */
+  justify-content: center;
+  /* 右对齐 */
+  align-items: flex-end;
+  font-size: 14px;
+  /* 防止缩小 */
+  flex-shrink: 0; 
 }
 
 /* 年份样式 */
 .year {
-  font-size: 2em; /* 放大字体 */
-  color: #333; /* 更深的颜色 */
+  font-size: 2em;
+  /* 放大字体 */
+  color: #333;
+  /* 更深的颜色 */
 }
 
 /* 月份样式 */
 .month {
-  font-size: 1em; /* 保持原大小 */
-  color: #666; /* 较浅的颜色 */
+  font-size: 1em;
+  /* 保持原大小 */
+  color: #666;
+  /* 较浅的颜色 */
 }
 
 /* 文章卡片 */
-.timeline-content {
-  padding: 14px 0px; /* 内边距 */
-  /* margin-bottom: 15px; */
-   /* 外边距 */
-  margin-left: 20px; /* 左边距 */
-  width: 600px;
+.article-infos .article-info .timeline .timeline-item .timeline-content {
+  flex-grow: 1; /* 自适应宽度 */
+  position: inherit;
 }
+
 .timeline-content h3 {
-  font-size: 1.5em; /* 标题字体大小 */
-  margin: 0 0 10px; /* 标题上下边距 */
+  font-size: 1.5em;
+  /* 标题字体大小 */
+  margin: 0 0 10px;
+  /* 标题上下边距 */
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
 }
+
 .timeline-content p {
-  color: #484848; /* 简介文字颜色 */
+  color: #484848;
+  /* 简介文字颜色 */
   /* line-height: 1.6; 简介行高 */
   cursor: pointer;
   transition: box-shadow 0.3s, transform 0.3s;
-  width: 800px; 
-  margin-top: 25px
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 h3:hover, p:hover {
   color: #0058b7;
   background-color: #ffffff;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
+
 /* 标签 */
 .timeline-content .tags {
   display: flex;
   flex-wrap: wrap;
-  margin: -5px; /* 负边距用于消除子元素边距重叠 */
+  /* 负边距用于消除子元素边距重叠 */
+  margin: -5px;
 }
+
 .timeline-content .tag {
-  display: inline-block; /* 使标签水平排列 */
-  color: #333; /* 标签文字颜色 */
-  border-radius: 3px; /* 标签圆角 */
-  padding: 5px 10px; /* 标签内边距 */
-  margin-right: 5px; /* 标签之间的间距 */
-  font-size: 0.8em; /* 标签字体大小 */
-  cursor: pointer; /* 改变鼠标样式为手型 */
+  display: inline-block;
+  /* 使标签水平排列 */
+  color: #333;
+  /* 标签文字颜色 */
+  border-radius: 3px;
+  /* 标签圆角 */
+  padding: 5px 10px;
+  /* 标签内边距 */
+  margin-right: 5px;
+  /* 标签之间的间距 */
+  font-size: 0.8em;
+  /* 标签字体大小 */
+  cursor: pointer;
+  /* 改变鼠标样式为手型 */
   transition: box-shadow 0.3s, transform 0.3s;
-}  
+}
+
 .tag:hover {
   background-color: #e0e0e0;
   color: #333;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
 
 /* 全图背景 */
-.full-background {
-  /* position: relative; */
-}
+/* .full-background {
+  position: relative;
+} */
+
 .full-background:before {
   content: ' ';
   display: block;
@@ -165,7 +221,8 @@ h3:hover, p:hover {
   top: 0;
   width: 100%;
   height: 105%;
-  opacity: 0.5; /* 50%的透明度 */
+  opacity: 0.5;
+  /* 50%的透明度 */
   /* 设置背景图片 */
   background-image: url('https://go.fuyeor.com/ran/pic');
   background-repeat: no-repeat;
@@ -177,22 +234,6 @@ h3:hover, p:hover {
   /* 使背景图片固定，即使页面滚动也不会移动 */
   background-attachment: fixed;
 }
-/* 使用Flexbox布局将页面分栏 */
-/* .container {
-  display: flex;
-}
-
-.left-column {
-  flex: 1;
-  background-color: lightblue;
-  padding: 20px;
-}
-
-.right-column {
-  flex: 1;
-  background-color: lightgreen;
-  padding: 20px;
-}  */
 
 /* 使用grid布局将页面分栏 */
 .container {
@@ -224,54 +265,80 @@ h3:hover, p:hover {
 .user-info {
   text-align: center;
   padding: 20px;
-  position: fixed; /* 使用户信息相对于容器定位 */
+  position: fixed;
+  /* 使用户信息相对于容器定位 */
   top: 50%;
   left: 20%;
-  transform: translate(-50%, -50%); /* 居中用户信息 */
+  transform: translate(-50%, -50%);
+  /* 居中用户信息 */
   text-align: center;
-  z-index: 1; /* 确保用户信息在页面其他内容之上 */
+  z-index: 1;
+  /* 确保用户信息在页面其他内容之上 */
 }
 
 .fixed-avatar {
   /* position: fixed; 将头像固定在屏幕上 */
   top: 0;
   left: 0;
-  width: 100%; /* 确保宽度覆盖整个屏幕 */
-  height: 100%; /* 确保高度覆盖整个屏幕 */
-  display: flex; /* 使内部元素居中 */
-  justify-content: center; /* 水平居中 */
-  align-items: center; /* 垂直居中 */
-  z-index: 1000; /* 确保头像在页面所有内容之上 */
+  width: 100%;
+  /* 确保宽度覆盖整个屏幕 */
+  height: 100%;
+  /* 确保高度覆盖整个屏幕 */
+  display: flex;
+  /* 使内部元素居中 */
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+  z-index: 1000;
+  /* 确保头像在页面所有内容之上 */
 }
 
 .fixed-avatar img {
-  width: 200px; /* 设置头像的宽度 */
-  height: 200px; /* 设置头像的高度 */
-  border-radius: 50%; /* 圆形边框 */
-  object-fit: cover; /* 确保图片完全填充 */
+  width: 200px;
+  /* 设置头像的宽度 */
+  height: 200px;
+  /* 设置头像的高度 */
+  border-radius: 50%;
+  /* 圆形边框 */
+  object-fit: cover;
+  /* 确保图片完全填充 */
 }
 
 .username {
   margin-top: 20px;
-  font-size: 30px; /* 字体大小 */
-  line-height: 1.5; /* 行高，使文本看起来更舒适 */
-  font-family: 'Arial', sans-serif; /* 字体，使用系统默认的 sans-serif 作为备选 */
-  color: #333; /* 文本颜色 */
+  font-size: 30px;
+  /* 字体大小 */
+  line-height: 1.5;
+  /* 行高，使文本看起来更舒适 */
+  font-family: 'Arial', sans-serif;
+  /* 字体，使用系统默认的 sans-serif 作为备选 */
+  color: #333;
+  /* 文本颜色 */
 }
 
 .motto {
-  font-family: 'Georgia', serif; /* 选择经典衬线字体 */
-  font-size: 20px; /* 设置合适的字体大小 */
-  font-style: italic; /* 斜体可以增加文本的强调效果 */
-  color: #333; /* 选择合适的文本颜色 */
-  text-align: center; /* 根据需要设置文本对齐方式 */
+  font-family: 'Georgia', serif;
+  /* 选择经典衬线字体 */
+  font-size: 20px;
+  /* 设置合适的字体大小 */
+  font-style: italic;
+  /* 斜体可以增加文本的强调效果 */
+  color: #333;
+  /* 选择合适的文本颜色 */
+  text-align: center;
+  /* 根据需要设置文本对齐方式 */
 }
 
 .contact-info {
-  font-family: 'Arial', sans-serif; /* 无衬线字体 */
-  font-size: 16px; /* 推荐字体大小 */
-  color: #333; /* 常规字体颜色 */
-  line-height: 1.5; /* 适当的行高增加可读性 */
+  font-family: 'Arial', sans-serif;
+  /* 无衬线字体 */
+  font-size: 16px;
+  /* 推荐字体大小 */
+  color: #333;
+  /* 常规字体颜色 */
+  line-height: 1.5;
+  /* 适当的行高增加可读性 */
   margin-top: 20px;
   margin-left: 70px;
 }
@@ -281,14 +348,17 @@ h3:hover, p:hover {
   list-style-type: none;
   padding: 0;
 }
+
 .contact-item {
   display: flex;
   padding: 0px;
   border-radius: 5px;
   font-size: 0.9em;
-  align-items: center; /* 垂直居中 */
+  align-items: center;
+  /* 垂直居中 */
 }
-.contact-item > div:first-child {
+
+.contact-item>div:first-child {
   /* 设置第一个div的样式，比如宽度和边框 */
   width: 80px;
   padding: 5px;
@@ -302,15 +372,18 @@ h3:hover, p:hover {
   justify-content: center;
   margin-top: 20px;
 }
+
 .page-link {
   padding: 10px 15px;
   margin: 0 5px;
   cursor: pointer;
 }
+
 .page-link.active {
   background-color: #007bff;
   color: white;
 }
+
 /* 上一页按钮样式 */
 .previous-page-button {
   position: fixed;
@@ -326,8 +399,9 @@ h3:hover, p:hover {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
-  visibility: hidden; /* 默认隐藏 */
-} 
+  visibility: hidden;
+  /* 默认隐藏 */
+}
 
 /* 下一页按钮样式 */
 .next-page-button {
@@ -345,34 +419,43 @@ h3:hover, p:hover {
   cursor: pointer;
 }
 
-.previous-page-button:hover, .next-page-button:hover {
+.previous-page-button:hover,
+.next-page-button:hover {
   background-color: #0056b3;
 }
 
-.previous-page-button:active, .next-page-button:active{
+.previous-page-button:active,
+.next-page-button:active {
   transform: translateY(1px);
 }
 
 /* 可选：在页面顶部或底部居中显示按钮 */
 .page-navigation {
-  display: flex; /* 使用Flexbox布局 */
-  align-items: center; /* 垂直居中 */
-  justify-content: space-between; /* 水平方向上平均分布剩余空间 */
-  gap: 10px; /* 为元素间添加间距 */
+  display: flex;
+  /* 使用Flexbox布局 */
+  align-items: center;
+  /* 垂直居中 */
+  justify-content: space-between;
+  /* 水平方向上平均分布剩余空间 */
+  gap: 10px;
+  /* 为元素间添加间距 */
 }
 
 /* 跳转页码样式 */
-.page-turn{
+.page-turn {
   display: flex;
   align-items: center;
   position: fixed;
   bottom: 20px;
   right: 260px;
   font-size: 16px;
-  font-family: 'Arial', sans-serif; /* 无衬线字体 */
-}
-.page-turn-input{
-  width: 50px; /* 根据需要调整输入框的宽度 */
-  margin: 0 5px; /* 为输入框添加左右边距，使其与文本之间有空隙 */
+  font-family: 'Arial', sans-serif;
+  /* 无衬线字体 */
 }
 
+.page-turn-input {
+  width: 50px;
+  /* 根据需要调整输入框的宽度 */
+  margin: 0 5px;
+  /* 为输入框添加左右边距，使其与文本之间有空隙 */
+}
