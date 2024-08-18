@@ -169,8 +169,8 @@ html,body {
 }
 
 h3:hover, p:hover {
-  color: #0058b7;
-  background-color: #ffffff;
+  /* color: #0058b7; */
+  /* background-color: #ffffff; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
@@ -202,8 +202,8 @@ h3:hover, p:hover {
 }
 
 .tag:hover {
-  background-color: #e0e0e0;
-  color: #333;
+  /* background-color: #e0e0e0; */
+  /* color: #333; */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
@@ -417,6 +417,7 @@ h3:hover, p:hover {
   text-decoration: none;
   font-size: 16px;
   cursor: pointer;
+  visibility: hidden;
 }
 
 .previous-page-button:hover,
@@ -459,3 +460,15 @@ h3:hover, p:hover {
   margin: 0 5px;
   /* 为输入框添加左右边距，使其与文本之间有空隙 */
 }
+
+/* a {
+  text-decoration: none;
+  color: #333;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-select: none;
+  transition: none;
+}
+
+a:hover {
+  color: #333;
+} */

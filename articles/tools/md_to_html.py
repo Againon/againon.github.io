@@ -44,7 +44,10 @@ def convert_markdown_to_html(file_path, output_path=None):
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         </head>
         <body>
+            <div class="full-background"></div>
+            <div class="container">
             {html}
+            </div>
             <script type="text/javascript" src="../js/article.js"></script>
         </body>
         </html>

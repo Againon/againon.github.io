@@ -8,10 +8,9 @@ Git是一个分布式版本控制系统，用于跟踪在文件和目录树中�
 
 安装完成后，您需要配置您的用户名和电子邮件，这将用于标识您的提交：
 
-```bash
+```{.bash .number-lines}
 git config --global user.name "Your Name"
-git config --global user.email "you@e
-xample.com"
+git config --global user.email "you@example.com"
 ```
 
 #### 2. 创建和克隆仓库
