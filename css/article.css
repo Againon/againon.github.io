@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.highlight {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #333;
+    background: #fff;
+}
+
+.hljs-comment,
+.hljs-quote {
+    color: #998;
+    font-style: italic;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    display: block;
+    line-height: 1;
+    overflow: auto;
+    color: var(--md-theme-code-block-color);
+    border-radius: 5px 5px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+    font-size: 14px;
+    position: relative;
+    clear: both;
+}
+
+code {
+    color: #333;
+    border-radius: 0 0 5px 5px;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+    font-size: 14px;
+}
+
+/* 复制按钮样式 */
+.copy-button {
+    position: absolute;
+    top: 50%; /* 垂直居中 */
+    right: 5px;
+    transform: translateY(-50%); /* 垂直居中 */
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 3px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.copy-button:hover {
+    background-color: #e1e1e1;
+}
+
+/* 当鼠标悬停在 pre 上时显示复制按钮 */
+pre:hover .copy-button {
+    opacity: 1;
+}
+
+/* 成功复制后的样式 */
+.success-icon {
+    font-size: 16px;
+    color: green;
+    transition: transform 0.3s ease-in-out;
+}
+
+.success-icon.rotate {
+    transform: rotate(360deg);
+}
+
+/* 行号列 */
+.highlight .linenos {
+    color: #999;
+    display: table-cell;
+    padding: 0 0.8em;
+    text-align: right;
+    vertical-align: top;
+  }
+  
+  /* 代码列 */
+  .highlight .code {
+    display: table-cell;
+  }

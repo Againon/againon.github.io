@@ -1,0 +1,64 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>article1</title>
+            <link rel="stylesheet" type="text/css" href="../css/article.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        </head>
+        <body>
+            <h3>Git使用入门：从新手到高手的进阶指南</h3>
+<p>Git是一个分布式版本控制系统，用于跟踪在文件和目录树中所做的更改，以便您可以恢复到任何特定的版本，这对于软件开发项目尤其有用。本文将从Git的基本概念入手，逐步引导您掌握Git的常用操作，帮助您成为一名Git高手。</p>
+<h4>1. Git的安装与配置</h4>
+<p>首先，您需要在计算机上安装Git。对于Windows用户，可以访问<a href="https://git-scm.com/downloads">Git官方网站</a>下载安装程序。对于Linux和Mac用户，Git通常已预装或可以通过包管理器轻松安装。</p>
+<p>安装完成后，您需要配置您的用户名和电子邮件，这将用于标识您的提交：</p>
+<pre class="highlight"><code class="language-bash number-lines">git config --global user.name "Your Name"
+git config --global user.email "you@example.com"</code></pre>
+<h4>2. 创建和克隆仓库</h4>
+<p><strong>创建仓库</strong>：如果您正在开始一个新项目，可以在项目目录中初始化一个新的Git仓库：</p>
+<pre class="highlight"><code class="language-bash">cd /path/to/your/project
+git init</code></pre>
+<p><strong>克隆仓库</strong>：如果您要加入一个现有的项目，可以克隆远程仓库到本地：</p>
+<pre class="highlight"><code class="language-bash">git clone https://github.com/username/repository.git</code></pre>
+<h4>3. 基本操作</h4>
+<p><strong>添加文件</strong>：使用<code>git add</code>命令将文件添加到仓库中，准备提交：</p>
+<pre class="highlight"><code class="language-bash">git add README.md  # 添加单个文件
+git add .          # 添加所有修改过的文件</code></pre>
+<p><strong>提交更改</strong>：使用<code>git commit</code>命令提交更改到仓库中：</p>
+<pre class="highlight"><code class="language-bash">git commit -m "Add initial README file"</code></pre>
+<p><strong>查看状态</strong>：使用<code>git status</code>命令查看当前仓库的状态：</p>
+<pre class="highlight"><code class="language-bash">git status</code></pre>
+<p><strong>查看提交历史</strong>：使用<code>git log</code>命令查看提交历史：</p>
+<pre class="highlight"><code class="language-bash">git log</code></pre>
+<h4>4. 分支管理</h4>
+<p><strong>创建分支</strong>：在Git中，您可以通过创建分支来进行并行开发：</p>
+<pre class="highlight"><code class="language-bash">git branch feature1
+git checkout feature1</code></pre>
+<p><strong>合并分支</strong>：当您完成分支上的开发后，可以将其合并到主分支：</p>
+<pre class="highlight"><code class="language-bash">git checkout main
+git merge feature1</code></pre>
+<h4>5. 远程仓库操作</h4>
+<p><strong>推送更改</strong>：将本地仓库的更改推送到远程仓库：</p>
+<pre class="highlight"><code class="language-bash">git push origin main</code></pre>
+<p><strong>拉取更改</strong>：从远程仓库获取最新的更改：</p>
+<pre class="highlight"><code class="language-bash">git pull origin main</code></pre>
+<h4>6. 解决冲突</h4>
+<p>在多人协作时，可能会遇到文件冲突。当您遇到冲突时，Git会停止合并并要求您手动解决冲突。解决冲突后，使用<code>git add</code>和<code>git commit</code>提交解决后的文件。</p>
+<h4>7. 高级技巧</h4>
+<p><strong>标签</strong>：为重要的提交添加标签，以便于标记和查找：</p>
+<pre class="highlight"><code class="language-bash">git tag v1.0.0
+git push origin v1.0.0</code></pre>
+<p><strong>重置</strong>：撤销更改或回滚到某个提交：</p>
+<pre class="highlight"><code class="language-bash">git reset --hard HEAD~1</code></pre>
+<p><strong>撤消文件更改</strong>：如果需要撤消对某个文件的更改：</p>
+<pre class="highlight"><code class="language-bash">git checkout -- filename</code></pre>
+<p><strong>恢复删除的文件</strong>：如果您不小心删除了文件，可以尝试恢复：</p>
+<pre class="highlight"><code class="language-bash">git checkout main -- filename</code></pre>
+<h4>结语</h4>
+<p>Git的强大功能远不止上述这些，但掌握了以上基础，您已经可以开始在项目中使用Git了。随着经验的积累，您可以逐渐学习更多进阶技巧，如使用Git的钩子、解决复杂冲突、使用Git的高级合并策略等。Git是一个非常有用的工具，可以极大地提高软件开发的效率和协作能力。</p>
+            <script type="text/javascript" src="../js/article.js"></script>
+        </body>
+        </html>
+        
