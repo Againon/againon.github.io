@@ -8,8 +8,8 @@ data={
             "month": "08/15",
             "title": "小工具集合",
             // "intro": "<a href='./articles/tools/md_to_html.py'>1、md_to_html.py</a>",
-            "intro": "1、md_to_html.py",
-            "tags": ["# 小工具"]
+            "intro": "1、md_to_html.py(md文件转换成html)；2、change_my_hosts.py(github）；3、delete_file.py(删除文件或目录)",
+            "tags": ["# 小工具","# python"]
         },
         {
             "id": "article2",
